@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<style type="text/css">
+
+#CUcloset{
+
+	position: absolute;
+	width: 1500 px;
+	height: 900 px;
+	z-index: 0;
+}
+
+#clos1 {
+	position: absolute;
+	z-index: 3;
+	left: 476px;
+	top: 249px;
+	transition: top 1s ease-in-out;
+
+}
+#clos2 {
+	position: absolute;
+	z-index: 2;
+	left: 508px;
+	top: 337px;
+	transition: top 1s ease-in-out;
+}
+#clos3 {
+	position: absolute;
+	z-index: 1;
+	left: 533px;
+	top: 444px;
+	transition: top 1s ease-in-out;
+}
+#topClos{
+	position: absolute;
+	z-index: 5;
+	left: 442px;
+	top: 228px;
+
+}
+#barClos1{
+	
+	position: absolute;
+	z-index: 4;
+	left: 461px;
+	top: 485px;
+}
+#barClos2{
+	
+	position: absolute;
+	z-index: 4;
+	left: 495px;
+	top: 554px;
+	height: 4px;
+	width: 550px;
+}
+#barClos3{
+	
+	position: absolute;
+	z-index: 4;
+	left: 530px;
+	top: 608px;
+	height: 4px;
+	width: 500px;
+}
+.clos:hover {
+
+	cursor: pointer;
+	filter: brightness(0.8);
+
+}
+.bar {
+	display : flex ;
+}
+</style>
+<body>
+	<div>
+		<img id = CUcloset src="closet/CUcloset.png">
+		<img class = clos id = clos1 src = "closet/1clos.png">
+		<img class = clos id = clos2 src="closet/2clos.png">
+		<img class = clos id = clos3 src="closet/3clos.png">
+		<img id = topClos src = "closet/top.png">
+		<img id = barClos1 src = "closet/block.png">
+		<img id = barClos2 src = "closet/block.png">
+		<img id = barClos3 src = "closet/block.png">
+
+	</div>
+
+<script type="text/javascript">
+	
+	var state = "close" ;
+
+	clos1.onclick = function(){
+
+		if (state == "close"){
+
+			clos1.style.top = "400px";
+			state = "open" ; 
+			barClos1.style.display = "none";
+			barClos2.style.display = "none";
+			barClos3.style.display = "none";
+
+		}else if(state == "open"){
+
+			clos1.style.top = "249px";
+			state = "close" ;
+
+			setTimeout(function(){
+				barClos3.style.display = "flex";
+			}, 500) ;
+			setTimeout(function(){
+				barClos2.style.display = "flex";
+			}, 900) ;
+			
+			barClos1.style.display = "flex";
+
+		}	
+
+	}
+
+	clos2.onclick = function(){
+
+		if (state == "close"){
+
+			clos2.style.top = "500px";
+			state = "open" ; 
+		
+			barClos2.style.display = "none";
+			barClos3.style.display = "none";
+
+		}else if(state == "open"){
+
+			clos2.style.top = "337px";
+			state = "close" ;
+
+			setTimeout(function(){
+				barClos3.style.display = "flex";
+			}, 800) ;
+			setTimeout(function(){
+				barClos2.style.display = "flex";
+			}, 850) ;
+		}	
+	}
+
+	clos3.onclick = function(){
+
+		if (state == "close"){
+
+			clos3.style.top = "550px";
+			state = "open" ; 
+		
+			barClos3.style.display = "none";
+
+		}else if(state == "open"){
+
+			clos3.style.top = "444px";
+			state = "close" ;
+
+			setTimeout(function(){
+				barClos3.style.display = "flex";
+			}, 800) ;		
+		}	
+	}
+
+</script>
+
+</body>
+</html>

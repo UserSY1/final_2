@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<style type="text/css">
+	
+#itemLoad {
+
+	position: absolute;
+	width: 1676 px;
+	height: 915 px;
+	z-index: 3;
+
+}
+#background{
+
+	position: absolute;
+	z-index: 1;
+	width: 1500px ;
+	height: 900px ;
+	
+}
+.look {
+
+	position: absolute;
+	height: 50px;
+	width: 60px;
+	z-index: 11;
+	top : 440px;
+
+}
+.look:hover {
+	cursor: pointer;
+	scale : 0.96;
+}
+#larrow{
+
+	left: 60px;
+	
+
+}
+#rarrow{
+
+	left : 1410px;
+}
+
+</style>
+<body>
+
+	<div>
+		<img id = itemLoad src = "main/item.png">
+		<img id = background  src = "main/image0.png">
+		<img onclick = "moveLeft()" class = look id = larrow src = "main/larrow.png">
+		<img onclick = "moveLeft()" class = look id = rarrow src = "main/rarrow.png">
+	</div>
+
+	<script type="text/javascript">
+		
+		let lookNow = 0;
+		const totalImages = 3;
+
+		function moveLeft(){
+
+			lookNow--;
+
+			if(lookNow < 0 ){
+				lookNow = totalImages;
+			}
+			changeBackground()
+		}	
+		
+		function moveRight(){
+
+			lookNow++;
+
+			if(lookNow > totalImages ){
+				lookNow = 0;
+			}
+			changeBackground()
+		}	
+
+		function changeBackground(){
+			
+			const background = document.getElementById('background');
+			background.src = `main/image${lookNow}.png`;
+		}
+
+
+		if (background.src = "main/image0.png"){
+
+
+			
+
+
+		}
+
+
+
+
+	</script>
+
+</body>
+</html>

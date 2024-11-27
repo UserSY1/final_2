@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<style type="text/css">
+	
+#back{
+	display: flex;
+}
+#backpic{
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+}
+#phone{
+	position: absolute;
+	width: 15vw;
+	height: 5vh;
+	top: 40vh;
+	left: 43.5vw;
+}
+#phone:hover{
+	cursor: pointer;
+	filter: brightness(60%);
+}
+#speaker{
+	position: absolute;
+	width:3vw;
+	height: 3vh;
+	top: 57vh;
+	left: 54.3vw;
+}
+#speaker:hover{
+	cursor: pointer;
+	filter: brightness(60%);
+}
+#playBut {
+
+	position: absolute;
+	width: 30vw;
+	height: 30vh;
+	top: 35vh;
+	left: 35vw;
+
+}
+#playBut:hover{
+	cursor: pointer;
+	filter: brightness(60%);
+	scale: 0.98;
+}
+#nextBut{
+	position: absolute;
+	width: 10vw;
+	height: 8vh;
+	top: 80vh;
+	left: 85vw;
+	display: none;
+}
+#nextBut:hover{
+	cursor: pointer;
+	filter: brightness(60%);
+	scale: 0.93;
+}
+
+</style>
+
+<body>
+
+<audio id = "ring" src = "office/ring.wav"></audio>
+<audio id = "talk" src = "office/talk.wav"></audio>
+<p id = "message"></p>
+
+<div id = back>
+	<img id = backpic src = "office/1back.png">
+	<img id = phone src="office/1phone.png">
+	<img id = speaker src = "office/1speaker.png">
+	<img id = playBut src = "office/play.png">
+	<img id = nextBut src = "office/next.png">
+</div>
+
+
+<script type="text/javascript">
+		
+
+	const ring = document.getElementById('ring');
+	const message = document.getElementById('message');
+	const talk = document.getElementById('talk');
+	let	ringCount = 0;
+
+ 	const maxringCount = 3;
+
+ 	ring.addEventListener('ended',()=>{
+ 		ringCount++;
+ 		if (ringCount<maxringCount){
+ 			ring.play();
+ 		}else{
+ 			console.log('game over!')
+ 		}
+ 	})
+
+
+	playBut.onclick = function(){
+
+		ring.play();
+		playBut.style.display ='none';
+
+	}
+	
+
+	phone.onclick = function(){
+		ring.pause();
+		talk.play();
+		phone.style.transform = `rotate(${135}deg)`;
+		phone.style.top = '37vh'
+		phone.style.left = '60vw'
+		nextBut.style.display = 'flex'; 
+	}
+	speaker.onclick = function(){
+		ring.pause();
+		talk.play();
+	}
+
+	nextBut.onclick = function(){
+
+		location.href = "입구.html"
+
+	}
+
+</script>
+
+</body>
+</html>
